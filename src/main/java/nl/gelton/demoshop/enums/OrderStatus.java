@@ -1,0 +1,11 @@
+package nl.gelton.demoshop.enums;
+
+public enum OrderStatus {
+
+    PENDING,
+    CONFIRMED,
+    SHIPPED,
+    DELIVERED,
+    CANCELLED,
+    RETURNED
+}
