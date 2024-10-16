@@ -3,23 +3,27 @@ package nl.gelton.demoshop.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @Entity
-@Table(name = "categories")
-public class Category {
+@Table(name ="payments")
+public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
-    private String name;
+    private BigDecimal amount;
 
-    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Product> productList;
+    private String method;
+
+    private String status;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name= "order_id")
+    private Order order;
 
     private final LocalDateTime createdAt = LocalDateTime.now();
 }
