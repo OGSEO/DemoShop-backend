@@ -34,5 +34,5 @@ public class OrderItem {
     @JoinColumn(name = "order_id")
     private Order order;
 
-    private final LocalDateTime created_At = LocalDateTime.now();
+    private final LocalDateTime createdAt = LocalDateTime.now();
 }
